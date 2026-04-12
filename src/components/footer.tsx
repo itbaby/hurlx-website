@@ -101,16 +101,15 @@ export function Footer() {
             &copy; 2026 hurlx. MIT License.
           </p>
           <p className="text-sm text-gray-500">
-            Based on{" "}
+            powered by{" "}
             <a
-              href="https://hurl.dev"
+              href="https://github.com/itbaby/hurlx"
               target="_blank"
               rel="noopener noreferrer"
               className="text-indigo-500 hover:underline"
             >
-              Hurl
-            </a>{" "}
-            by Orange Open Source
+              itbaby
+            </a>
           </p>
         </div>
       </div>
