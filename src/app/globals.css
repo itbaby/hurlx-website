@@ -146,7 +146,7 @@
   }
 
   .code-block {
-    @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto font-mono text-sm;
+    @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto font-mono text-sm;
   }
 
   .animate-float {
@@ -188,47 +188,47 @@
 }
 
 .hurlx-highlight .hl-comment {
-  color: #6b7280;
+  color: #9ca3af;
   font-style: italic;
 }
 .hurlx-highlight .hl-method {
-  color: #f472b6;
+  color: #f9a8d4;
   font-weight: bold;
 }
 .hurlx-highlight .hl-http {
-  color: #f472b6;
+  color: #f9a8d4;
   font-weight: bold;
 }
 .hurlx-highlight .hl-status {
-  color: #fbbf24;
+  color: #fde68a;
 }
 .hurlx-highlight .hl-section {
-  color: #818cf8;
+  color: #a5b4fc;
   font-weight: bold;
 }
 .hurlx-highlight .hl-keyword {
-  color: #c084fc;
+  color: #d8b4fe;
   font-weight: bold;
 }
 .hurlx-highlight .hl-function {
-  color: #67e8f9;
+  color: #a5f3fc;
 }
 .hurlx-highlight .hl-operator {
   color: #fdba74;
 }
 .hurlx-highlight .hl-string {
-  color: #a5f3a4;
+  color: #bbf7d0;
 }
 .hurlx-highlight .hl-template {
-  color: #fbbf24;
+  color: #fde68a;
   font-style: italic;
 }
 .hurlx-highlight .hl-template-inner {
-  color: #fcd34d;
+  color: #fef08a;
 }
 .hurlx-highlight .hl-url {
-  color: #93c5fd;
+  color: #bfdbfe;
 }
 .hurlx-highlight .hl-header-key {
-  color: #c4b5fd;
+  color: #ddd6fe;
 }
