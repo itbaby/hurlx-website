@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "domains": [
+    "hurlx.vercel.app"
+  ],
+  "build": {
+    "outputDirectory": ".next",
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ]
+}
