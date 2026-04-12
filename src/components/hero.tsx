@@ -4,76 +4,98 @@ import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 function highlightLine(line: string): string {
-  let h = line
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  const tokens: string[] = [];
+  const PH_L = "\x01";
+  const PH_R = "\x02";
+
+  function tok(html: string): string {
+    tokens.push(html);
+    return `${PH_L}${tokens.length - 1}${PH_R}`;
+  }
+
+  let h = line;
 
   if (h.trimStart().startsWith("#")) {
-    return `<span class="hl-comment">${h}</span>`;
+    return tok(`<span class="hl-comment">${escapeHtml(h)}</span>`).replace(
+      new RegExp(`${PH_L}(\\d+)${PH_R}`, "g"),
+      (_, idx) => tokens[parseInt(idx)]
+    );
   }
 
   h = h.replace(
     /^( *)(GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS)\b/,
-    '$1<span class="hl-method">$2</span>'
+    (_, spaces, method) => `${spaces}${tok(`<span class="hl-method">${method}</span>`)}`
   );
 
   h = h.replace(
     /\b(HTTP\/?[123.]*)\s+(\d{3})\b/,
-    '<span class="hl-http">$1</span> <span class="hl-status">$2</span>'
+    (_, http, status) =>
+      `${tok(`<span class="hl-http">${http}</span>`)} ${tok(`<span class="hl-status">${status}</span>`)}`
   );
+
   h = h.replace(
     /\b(HTTP)\s+(\*)\b/,
-    '<span class="hl-http">$1</span> <span class="hl-status">$2</span>'
+    (_, http, status) =>
+      `${tok(`<span class="hl-http">${http}</span>`)} ${tok(`<span class="hl-status">${status}</span>`)}`
   );
 
   h = h.replace(
     /^\s*\[(Assertions|Asserts|Captures|Query|Form|Multipart|BasicAuth|Cookies|Options|JSON)\]/gm,
-    '<span class="hl-section">[$1]</span>'
+    (_, section) => tok(`<span class="hl-section">[${section}]</span>`)
   );
 
-  h = h.replace(/\b(import|export)\b/g, '<span class="hl-keyword">$1</span>');
+  h = h.replace(
+    /\b(import|export)\b/g,
+    (_, kw) => tok(`<span class="hl-keyword">${kw}</span>`)
+  );
 
   h = h.replace(
     /\b(jsonpath|xpath|header|cookie|regex|status|url|duration|sha256|bytes|certificate|ip)\b/g,
-    '<span class="hl-function">$1</span>'
+    (_, fn) => tok(`<span class="hl-function">${fn}</span>`)
   );
 
   h = h.replace(
     /\b(isInteger|isBoolean|isString|isFloat|isList|isObject|isUuid|isIsoDate)\b/g,
-    '<span class="hl-function">$1</span>'
+    (_, fn) => tok(`<span class="hl-function">${fn}</span>`)
   );
 
   h = h.replace(
     /(==|!=|>=|<=|>|<)\b/g,
-    '<span class="hl-operator">$1</span>'
+    (_, op) => tok(`<span class="hl-operator">${op}</span>`)
   );
 
   h = h.replace(
     /\b(matches|contains|exists|count|startsWith|endsWith)\b/g,
-    '<span class="hl-operator">$1</span>'
+    (_, op) => tok(`<span class="hl-operator">${op}</span>`)
   );
 
-  h = h.replace(/&quot;([^&]*)&quot;/g, '<span class="hl-string">&quot;$1&quot;</span>');
-  h = h.replace(/"([^"]*)"/g, '<span class="hl-string">"$1"</span>');
+  h = h.replace(
+    /"([^"]*)"/g,
+    (_, content) => tok(`<span class="hl-string">"${escapeHtml(content)}"</span>`)
+  );
 
   h = h.replace(
     /\{\{([^}]+)\}\}/g,
-    '<span class="hl-template">{{<span class="hl-template-inner">$1</span>}}</span>'
+    (_, content) =>
+      tok(`<span class="hl-template">{{<span class="hl-template-inner">${escapeHtml(content)}</span>}}</span>`)
   );
 
   h = h.replace(
     /(https?:\/\/[^\s]+)/g,
-    '<span class="hl-url">$1</span>'
+    (_, url) => tok(`<span class="hl-url">${url}</span>`)
   );
 
   h = h.replace(
     /^( *)([A-Za-z][A-Za-z0-9-]*)(:)/gm,
-    '$1<span class="hl-header-key">$2</span>$3'
+    (_, spaces, key, colon) => `${spaces}${tok(`<span class="hl-header-key">${key}</span>`)}${colon}`
   );
 
-  return h;
+  return h.replace(new RegExp(`${PH_L}(\\d+)${PH_R}`, "g"), (_, idx) => tokens[parseInt(idx)]);
 }
 
 function highlight(code: string): string {
