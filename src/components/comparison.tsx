@@ -8,6 +8,7 @@ const rows = [
   { name: "Filters & Predicates", hurl: true, hurlx: true },
   { name: "Captures & Chaining", hurl: true, hurlx: true },
   { name: "Modular Import/Export", hurl: false, hurlx: true },
+  { name: "Chain Trace (--trace)", hurl: false, hurlx: true },
   { name: "Structured Test Cases", hurl: false, hurlx: true },
   { name: "Engineering-Ready Workflows", hurl: false, hurlx: true },
 ];

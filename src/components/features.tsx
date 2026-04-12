@@ -38,6 +38,12 @@ const features = [
     description:
       "Structured test cases with CI/CD integration, JUnit reports, and professional workflow support built in.",
   },
+  {
+    icon: Zap,
+    title: "Chain Trace",
+    description:
+      "Use --trace flag to print each chain step result as JSON for detailed debugging and analysis.",
+  },
 ];
 
 export function Features() {

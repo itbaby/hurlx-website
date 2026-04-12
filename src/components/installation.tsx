@@ -124,7 +124,7 @@ export function Installation() {
           </div>
 
           <div className="mt-12 relative bg-gray-800 dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-            <CopyButton text={`# hello.hurlx\nGET https://example.com\nHTTP 200\n\nhurlx hello.hurlx\nhurlx --test hello.hurlx`} />
+            <CopyButton text={`# hello.hurlx\nGET https://example.com\nHTTP 200\n\nhurlx hello.hurlx\nhurlx --test hello.hurlx\nhurlx --verbose test.hurlx\nhurlx --test tests/*.hurlx\nhurlx --trace test.hurlx`} />
             <pre className="text-sm md:text-base text-white font-mono leading-relaxed">
               <code>{`# hello.hurlx
 GET https://example.com
@@ -133,7 +133,8 @@ HTTP 200
 $ hurlx hello.hurlx
 $ hurlx --test hello.hurlx
 $ hurlx --verbose test.hurlx
-$ hurlx --test tests/*.hurlx`}</code>
+$ hurlx --test tests/*.hurlx
+$ hurlx --trace test.hurlx`}</code>
             </pre>
           </div>
         </div>
