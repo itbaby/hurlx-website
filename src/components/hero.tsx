@@ -251,9 +251,9 @@ export function Hero() {
               </button>
             ))}
           </div>
-          <div className="bg-gray-900 dark:bg-gray-800/80 rounded-b-xl rounded-tr-xl p-6 shadow-2xl">
+          <div className="bg-gray-800 dark:bg-gray-800 rounded-b-xl rounded-tr-xl p-6 shadow-2xl">
             <pre
-              className="text-sm md:text-base overflow-x-auto font-mono leading-relaxed whitespace-pre hurlx-highlight"
+              className="text-sm md:text-base text-white overflow-x-auto font-mono leading-relaxed whitespace-pre hurlx-highlight"
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           </div>

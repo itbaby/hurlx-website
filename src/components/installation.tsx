@@ -92,9 +92,9 @@ export function Installation() {
             ))}
           </div>
 
-          <div className="relative bg-gray-900 dark:bg-gray-800/80 rounded-xl p-6 shadow-lg">
+          <div className="relative bg-gray-800 dark:bg-gray-800 rounded-xl p-6 shadow-lg">
             <CopyButton text={platform.commands.join("\n")} />
-            <pre className="text-sm md:text-base text-gray-100 font-mono leading-relaxed">
+            <pre className="text-sm md:text-base text-white font-mono leading-relaxed">
               <code>{platform.commands.join("\n")}</code>
             </pre>
           </div>
@@ -123,9 +123,9 @@ export function Installation() {
             </div>
           </div>
 
-          <div className="mt-12 relative bg-gray-900 dark:bg-gray-800/80 rounded-xl p-6 shadow-lg">
+          <div className="mt-12 relative bg-gray-800 dark:bg-gray-800 rounded-xl p-6 shadow-lg">
             <CopyButton text={`# hello.hurlx\nGET https://example.com\nHTTP 200\n\nhurlx hello.hurlx\nhurlx --test hello.hurlx`} />
-            <pre className="text-sm md:text-base text-gray-100 font-mono leading-relaxed">
+            <pre className="text-sm md:text-base text-white font-mono leading-relaxed">
               <code>{`# hello.hurlx
 GET https://example.com
 HTTP 200
