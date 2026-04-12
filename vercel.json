@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "domains": [
-    "hurlx.vercel.app"
-  ],
   "build": {
     "outputDirectory": ".next",
     "env": {
