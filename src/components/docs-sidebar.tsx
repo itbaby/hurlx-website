@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const sidebarLinks = [
@@ -47,16 +47,28 @@ const sidebarLinks = [
 export function DocsSidebar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
+
+  // Update hash when URL changes
+  useEffect(() => {
+    setHash(window.location.hash.slice(1)); // Remove the # prefix
+    
+    const handleHashChange = () => {
+      setHash(window.location.hash.slice(1));
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const isActive = (href: string) => {
     const [linkBase, linkHash] = href.split("#");
-    const [pathBase, pathHash] = pathname.split("#");
     
     if (linkHash) {
-      return pathBase === linkBase && pathHash === linkHash;
+      return pathname === linkBase && hash === linkHash;
     }
     
-    return pathname === href;
+    return pathname === href && !hash;
   };
 
   const sidebar = (
