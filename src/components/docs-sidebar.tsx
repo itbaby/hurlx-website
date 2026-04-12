@@ -49,8 +49,14 @@ export function DocsSidebar() {
   const [open, setOpen] = useState(false);
 
   const isActive = (href: string) => {
-    const base = href.split("#")[0];
-    return pathname === base;
+    const [linkBase, linkHash] = href.split("#");
+    const [pathBase, pathHash] = pathname.split("#");
+    
+    if (linkHash) {
+      return pathBase === linkBase && pathHash === linkHash;
+    }
+    
+    return pathname === href;
   };
 
   const sidebar = (
