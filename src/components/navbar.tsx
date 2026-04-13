@@ -15,12 +15,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 8L13 12L7 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 16H19" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                </svg>
-              </div>
+              <img src="/roadrunner.svg" alt="hurlx" className="w-8 h-8 rounded-lg" />
               <span className="text-xl font-bold gradient-text">hurlx</span>
             </Link>
           </div>

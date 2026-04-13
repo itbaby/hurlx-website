@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   keywords: ["hurlx", "hurl", "HTTP testing", "API testing", "modular testing"],
   authors: [{ name: "Wei Li" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/roadrunner.svg",
   },
 };
 
