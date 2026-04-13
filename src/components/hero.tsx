@@ -219,8 +219,10 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
-              Run and Test{" "}
-              <span className="gradient-text">HTTP Requests</span>
+              The Fastest Way For{
+                " "
+              }
+              <span className="gradient-text">Testing</span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-4 max-w-xl">
               An enhanced version of{" "}
@@ -287,46 +289,8 @@ export function Hero() {
 
 function HeroIllustration() {
   return (
-    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-      <rect x="40" y="30" width="400" height="260" rx="16" fill="#1e1b4b" className="dark:fill-indigo-950/60" />
-      <rect x="40" y="30" width="400" height="36" rx="16" fill="#312e81" className="dark:fill-indigo-900/60" />
-      <circle cx="64" cy="48" r="6" fill="#ef4444" />
-      <circle cx="84" cy="48" r="6" fill="#fbbf24" />
-      <circle cx="104" cy="48" r="6" fill="#22c55e" />
-
-      <text x="72" y="100" fill="#f472b6" fontFamily="monospace" fontSize="14" fontWeight="bold">GET</text>
-      <text x="110" y="100" fill="#93c5fd" fontFamily="monospace" fontSize="14">https://api.example.com</text>
-      <rect x="56" y="110" width="288" height="1" fill="#4338ca" opacity="0.3" />
-
-      <text x="72" y="132" fill="#818cf8" fontFamily="monospace" fontSize="12" fontWeight="bold">[Captures]</text>
-      <text x="72" y="150" fill="#67e8f9" fontFamily="monospace" fontSize="12">token: jsonpath</text>
-      <text x="168" y="150" fill="#a5f3a4" fontFamily="monospace" fontSize="12">&quot;$.token&quot;</text>
-      <rect x="56" y="160" width="288" height="1" fill="#4338ca" opacity="0.3" />
-
-      <text x="72" y="180" fill="#c084fc" fontFamily="monospace" fontSize="12" fontWeight="bold">export</text>
-      <text x="120" y="180" fill="#e0e7ff" fontFamily="monospace" fontSize="12">token</text>
-
-      <rect x="340" y="88" width="88" height="56" rx="10" fill="#312e81" className="dark:fill-indigo-900/50" stroke="#6366f1" strokeWidth="1.5" />
-      <text x="364" y="112" fill="#a5f3a4" fontFamily="monospace" fontSize="10">200 OK</text>
-      <text x="356" y="128" fill="#22c55e" fontFamily="monospace" fontSize="16">&#10003;</text>
-
-      <rect x="340" y="156" width="88" height="48" rx="10" fill="#312e81" className="dark:fill-indigo-900/50" stroke="#8b5cf6" strokeWidth="1.5" />
-      <text x="356" y="176" fill="#fbbf24" fontFamily="monospace" fontSize="10">{"{token}"}</text>
-      <text x="352" y="192" fill="#c084fc" fontFamily="monospace" fontSize="9">captured</text>
-
-      <circle cx="100" cy="240" r="24" fill="#4338ca" opacity="0.4" />
-      <circle cx="100" cy="240" r="16" fill="#6366f1" opacity="0.6" />
-      <circle cx="100" cy="240" r="8" fill="#818cf8" />
-
-      <line x1="124" y1="240" x2="200" y2="240" stroke="#6366f1" strokeWidth="2" strokeDasharray="6 4" />
-      <circle cx="220" cy="240" r="20" fill="#7c3aed" opacity="0.4" />
-      <circle cx="220" cy="240" r="12" fill="#a78bfa" />
-      <text x="212" y="244" fill="white" fontFamily="monospace" fontSize="12" fontWeight="bold">&lt;/&gt;</text>
-
-      <line x1="240" y1="240" x2="310" y2="240" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="6 4" />
-      <circle cx="330" cy="240" r="20" fill="#6d28d9" opacity="0.4" />
-      <circle cx="330" cy="240" r="12" fill="#8b5cf6" />
-      <text x="322" y="244" fill="white" fontFamily="monospace" fontSize="14">&#10003;</text>
-    </svg>
+    <div className="flex items-center justify-center w-full">
+      <img src="/roadrunner.svg" alt="Roadrunner" className="w-64 h-auto" />
+    </div>
   );
 }
