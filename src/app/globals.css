@@ -187,6 +187,15 @@
   }
 }
 
+/* Shiki dual-theme: switch to dark colors in dark mode */
+.dark .shiki {
+  background-color: var(--shiki-dark-bg, #1e1e1e) !important;
+  color: var(--shiki-dark, #bbbbbb) !important;
+}
+.dark .shiki span {
+  color: var(--shiki-dark, #bbbbbb) !important;
+}
+
 .hurlx-highlight .hl-comment {
   color: #9ca3af;
   font-style: italic;
