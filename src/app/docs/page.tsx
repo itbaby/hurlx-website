@@ -16,7 +16,7 @@ export default function DocsPage() {
 
       <h2 id="installation">Installation</h2>
       <p>
-        Current version: <strong>v1.0.7</strong>
+        Current version: <strong>v1.0.9</strong>
       </p>
       <h3>Binary</h3>
       <HighlightedCode lang="bash" code={`# macOS (Apple Silicon)
