@@ -40,6 +40,7 @@ const sidebarLinks = [
     links: [
       { label: "Samples", href: "/docs/samples" },
       { label: "CLI Reference", href: "/docs/cli" },
+      { label: "Changelog", href: "/docs/changelog" },
     ],
   },
 ];
