@@ -20,6 +20,35 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "v1.0.13",
+    date: "2026-04-20",
+    tag: "v1.0.13",
+    highlights: "Variable scoping fix for chained entries, fractional duration support, and base64url padding fix.",
+    sections: [
+      {
+        title: "Bug Fixes",
+        icon: "🐛",
+        items: [
+          "runner: pass entry-scoped `vars` to `evaluateQuery` and `checkAssert` — captured variables are now correctly visible in subsequent asserts within the same entry",
+          "runner: `applyRequestOptions` now writes option-defined variables to entry-scoped vars — fixes variable isolation across chained entries",
+          "runner: `ParseDuration` uses `ParseFloat` instead of `ParseInt` — fractional durations like `1.5s`, `0.5m`, `50.5ms` now work correctly",
+          "filter: `decodeBase64URLSafe` strips trailing `=` padding before NoPadding decode — fixes decoding of padded URL-safe base64 strings",
+        ],
+      },
+      {
+        title: "Tests Added",
+        icon: "✅",
+        items: [
+          "`TestBase64UrlSafeDecodePadded` — verify padded URL-safe base64 input is accepted",
+          "`TestParseDuration` float cases — `1.5s`, `0.5m`, `0.25h`, `50.5ms`",
+          "`TestCheckIncludes` — collection includes assertion coverage",
+          "`TestRunWithVariables` — end-to-end variable template substitution in URL",
+          "`TestRunSSRFBlocked` — `file://` URL scheme is rejected at runner level",
+        ],
+      },
+    ],
+  },
+  {
     version: "v1.0.12",
     date: "2026-04-17",
     tag: "v1.0.12",
