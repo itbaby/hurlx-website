@@ -90,7 +90,7 @@ export function Features() {
               configuration, and endpoint definitions across test suites.
             </p>
             <div className="bg-gray-900 dark:bg-gray-800/80 rounded-xl p-4">
-              <pre className="text-sm font-mono leading-relaxed hurlx-highlight" dangerouslySetInnerHTML={{
+              <pre className="text-sm font-mono leading-relaxed hurlx-highlight text-gray-200 dark:text-gray-200" dangerouslySetInnerHTML={{
                 __html: `<span class="hl-comment"># auth.hurlx</span>
 POST https://api.example.com/login
 <span class="hl-section">[JSON]</span>
@@ -115,7 +115,7 @@ token: <span class="hl-function">jsonpath</span> <span class="hl-string">"$.toke
               them to subsequent requests for complex API testing workflows.
             </p>
             <div className="bg-gray-900 dark:bg-gray-800/80 rounded-xl p-4">
-              <pre className="text-sm font-mono leading-relaxed hurlx-highlight" dangerouslySetInnerHTML={{
+              <pre className="text-sm font-mono leading-relaxed hurlx-highlight text-gray-200 dark:text-gray-200" dangerouslySetInnerHTML={{
                 __html: `<span class="hl-comment"># Get token → Login → Access</span>
 <span class="hl-method">GET</span> <span class="hl-url">https://api.example.com/login</span>
 HTTP <span class="hl-status">200</span>
