@@ -20,6 +20,38 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "v1.0.14",
+    date: "2026-05-16",
+    tag: "v1.0.14",
+    highlights: "Parser blank-line handling overhaul, comment parsing fix, entry state restoration, and runner redirect isolation fix.",
+    sections: [
+      {
+        title: "Bug Fixes",
+        icon: "🐛",
+        items: [
+          "parser: `skipEmptyAndComments` now correctly loops over blank lines and comments instead of returning after the first one — fixes parsing of files with multiple consecutive blank lines or comments",
+          "parser: comment text now uses the raw line with `#` prefix stripped — preserves whitespace in comments like `#  Step 1`",
+          "parser: `parseEntry` uses `unreadLine()` instead of manual `savedLine`/`savedPos` restore — fixes state corruption when scanning ahead for response lines",
+          "parser: `parseRequest` and `parseKeyValueSection` now `continue` on blank lines instead of returning — allows headers and key-value sections to span blank lines correctly",
+          "parser: `Parse()` returns an error for unexpected trailing content instead of silently ignoring it",
+          "parser: removed unused `col` field from `Parser` struct",
+          "runner: `applyRequestOptions` now saves and restores `client.CheckRedirect` — prevents redirect policy from leaking between entries",
+          "runner: `optsToEntry` returns `n` directly instead of `n + 1` — fixes `--to-entry` off-by-one that included one extra entry beyond the specified index",
+        ],
+      },
+      {
+        title: "Tests Added",
+        icon: "✅",
+        items: [
+          "`TestParseResponseWithBlankLines` — response headers followed by blank line then `[Asserts]` section",
+          "`TestParseMultipleBlankLinesBetweenEntries` — multiple consecutive blank lines between entries",
+          "`TestParseOptionsAllFields` — full options section with location, retry, and other fields",
+          "`TestParseRequestWithMultipleHeadersAndBlankLines` — headers with blank lines in between",
+        ],
+      },
+    ],
+  },
+  {
     version: "v1.0.13",
     date: "2026-04-20",
     tag: "v1.0.13",
