@@ -20,6 +20,22 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "v1.0.15",
+    date: "2026-06-04",
+    tag: "v1.0.15",
+    highlights: "Runner proxy configuration now falls back to environment variables and emits a warning for invalid proxy URLs.",
+    sections: [
+      {
+        title: "Bug Fixes",
+        icon: "🐛",
+        items: [
+          "runner: proxy configuration now logs a warning to stderr when an invalid proxy URL is provided instead of silently discarding it",
+          "runner: when no explicit proxy is set (or on proxy parse error), `transport.Proxy` now falls back to `http.ProxyFromEnvironment` — respects `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` environment variables",
+        ],
+      },
+    ],
+  },
+  {
     version: "v1.0.14",
     date: "2026-05-16",
     tag: "v1.0.14",
