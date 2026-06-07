@@ -20,6 +20,37 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "v1.0.16",
+    date: "2026-06-07",
+    tag: "v1.0.16",
+    highlights: "Major runner refactor: TLS/client-cert support, AWS SigV4, retry/delay, and code split into focused modules. Filter regex caching. New CLI flags: --cacert, --cert, --key, --ipv4, --ipv6.",
+    sections: [
+      {
+        title: "New Features",
+        icon: "🚀",
+        items: [
+          "runner: TLS client certificate support — `--cert`, `--key`, and `--cacert` flags for mutual TLS authentication",
+          "runner: AWS Signature V4 request signing via `--aws-sigv4` flag",
+          "runner: `--retry` and `--retry-interval` flags for automatic request retries on failure",
+          "runner: `--delay` flag for adding a delay between requests in a chain",
+          "runner: `--ipv4` / `--ipv6` flags to restrict DNS resolution to a specific IP family",
+          "runner: `RedactedVars` field on `EntryResult` for tracking secret variable names",
+          "filter: compiled regex patterns are now cached in a thread-safe LRU-style map — avoids repeated recompilation for repeated assertions",
+        ],
+      },
+      {
+        title: "Refactoring",
+        icon: "🔧",
+        items: [
+          "runner: split monolithic `runner.go` into focused modules — `asserts.go`, `query.go`, `regex_cache.go`, `util.go`",
+          "runner: `NewRunner` now returns `(*Runner, error)` — caller can handle initialization errors cleanly",
+          "runner: `cookiejar.New` error is now handled defensively instead of silently ignored",
+          "filter: `maxRegexPatternLen` renamed to exported `MaxRegexPatternLen` for reuse across packages",
+        ],
+      },
+    ],
+  },
+  {
     version: "v1.0.15",
     date: "2026-06-04",
     tag: "v1.0.15",
