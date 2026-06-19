@@ -20,6 +20,21 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "v1.0.17",
+    date: "2026-06-16",
+    tag: "v1.0.17",
+    highlights: "Repository cleanup — remove bundled roadrunner.svg asset.",
+    sections: [
+      {
+        title: "Housekeeping",
+        icon: "🧹",
+        items: [
+          "Removed `roadrunner.svg` from the repository — mascot image is now hosted externally",
+        ],
+      },
+    ],
+  },
+  {
     version: "v1.0.16",
     date: "2026-06-07",
     tag: "v1.0.16",
